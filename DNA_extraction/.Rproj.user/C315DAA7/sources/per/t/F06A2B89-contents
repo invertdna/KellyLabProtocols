@@ -1,0 +1,29 @@
+#SCript with the analysis of the comparison between extractions treatments
+
+library (tidyverse)
+library (googlesheets)
+library (lme4)
+#Load data
+Extraction_data=gs_read_csv(gs_title("Comparing PCI extractions"), ws = 2)
+Extraction_data$test<-"PCI"
+
+
+# linear model
+lm_lysis<- lmer(Nanodrop_ng_ul ~ Lysis * Proteins + ( 1 | Site), data= Extraction_data)
+
+anova(lm_lysis)
+summary(lm_lysis)
+
+plot (lm_lysis, type="smooth")# Step 1:
+# Does  the pre-treatment (beads vs heat) affect the amount of DNA released
+
+p<- ggplot(aes( x= Proteins ,y = Nanodrop_ng_ul), data= Extraction_data)
+
+p<- p + geom_boxplot()
+p+facet_grid(Site~Proteins)
+p+facet_grid(.~Site)
+q<-ggplot(aes(x=Proteins, y=Abs_260_280), data= Extraction_data)
+q<- q + geom_boxplot()
+q + facet_grid(.~Proteins)
+q + facet_grid(.~Site) 
+

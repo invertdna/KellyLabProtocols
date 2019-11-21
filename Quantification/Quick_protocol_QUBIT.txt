@@ -1,0 +1,40 @@
+
+
+Reagents:
+
+Qubit Buffer
+Qubit Reagent
+Qubit Standard 1
+Qubit Standard 2
+
+Equipment
+
+P1000
+P200
+p10
+
+clear 200ul tubes
+
+1.- Calculate the  number of reactions needed:
+n= number of samples + 2 standards
+2.- Prepare the Qubit MIx :
+Qubit Buffer: 199ul * n
+Qubit Reagent: n ul
+      Mix throughly
+
+3.- Prepare the 2 standards by mixing
+190 ul Qubit MIX
+10 ul of Standard
+
+4.- Prepare the samples by mixing
+190-199 ul of Qubit mix (198 Would be my call)
+10-1 ul of sample (2 ul as before)
+
+5.- Vortex each trouble and let them sit for 2 min for the RX to happen
+
+6.- Run the Qubit ds DNA High Sensitivity Test:
+a) Standard 1
+b) St 2
+c) Each sample. On the first one, use the Calculate the stock concentration option
+to see what conversion factor you have to do from the reading in the tube to the original
+DNA concentration

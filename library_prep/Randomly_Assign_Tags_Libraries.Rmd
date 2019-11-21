@@ -1,0 +1,77 @@
+---
+title: "Randomly_assign_tags"
+author: "Ramón Gallego"
+date: "3/23/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+library(googlesheets)
+library(tidyverse)
+library(knitr)
+```
+
+## Assigning Tag - Library Combos to samples
+
+This script will get the samples you want to run on your next MiSeq run and assign them - randomly - a Library and a PCR Tag. To assist you in your lab work, it will generate a series of tables so you know which primer to add to each well in a 96 well-plate. Start by having a gsheet with a sheet in it with all the samples you want to sequence and the Well in a 96 well plate they will go into. Also, add how many PCR tags do you intend to use.
+
+```{r loading data}
+samples.names<-gs_read_csv(gs_title("Samples_OA_good"), ws = "Sequencing_run_Apr_18b") # add your gsheet
+
+Ntags=16 # Number of PCR tags you can use to identify samples
+
+```
+
+
+```{r calculate nsamples and libraries, echo=FALSE}
+
+NtotalSamples=nrow(samples.names)
+
+Nlibraries=ceiling(NtotalSamples/Ntags) 
+
+tagNames=paste0("Tag_", seq(01:Ntags))
+libNames=paste0("Lib_", LETTERS[1:Nlibraries])#how many times does a given tag get used?
+
+
+```
+
+You have `r NtotalSamples` samples and `r Ntags` unique Tags, so you'll need to prepare `r Nlibraries` unique libraries.
+
+```{r assign tags and libraries}
+
+all_combos=crossing(Tag = tagNames,Lib = libNames) %>% #create all combinations of tags and libraries
+  mutate(Combo=paste(Tag ,Lib , sep=".")) %>% # paste them together
+  sample_n(size=NtotalSamples) #Randonmize and select as many cases as needed
+
+
+output=bind_cols(samples.names, all_combos) 
+	
+```
+One last check that no library-Tag combo has been used more than once
+```{r table}
+with (output, table(Lib,Tag))
+```
+If all numbers are 1 or 0, then proceed to save the output in the googlesheet
+```{r saving}
+gs_title("Samples_OA_good") %>% gs_edit_cells( ws = "Sequencing_run_Apr_18b", input = output)	
+```
+
+Now prepare easy to read tables with a 96 well plate format - to know which tag combo to add on each well
+
+```{r tables, results='asis'}
+output2 <- output %>% separate (Well_in_AMPureXP, into = c("Row", "Column"), sep = 1, remove = F)
+PCR2_table<-matrix(nrow=8, ncol=12, dimnames = list(LETTERS[1:8], 1:12))
+
+
+PCR2_table[with (output2, cbind(Row,Column))] <- with(output2, Tag) #Go from long to wide
+
+  print_table<-function(x){
+    PCR2_table[PCR2_table!=x ]<-"."
+     kable (PCR2_table, format = "markdown")
+  }
+  map(tagNames, print_table)
+ 
+
+```

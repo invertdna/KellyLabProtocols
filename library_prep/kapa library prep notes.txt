@@ -1,0 +1,22 @@
+> 1. Did you do the post-ligation library amplification step, or was the KAPA PCR-free protocol sufficient to give you enough DNA to sequence?
+
+A: Yes, Jesse has been doing post-ligation amplification (only 2 cycles) because of incomplete ligation.  The amplification increases the signal of fully-ligated-on-both-sides fragments over other incompletely ligated fragments in the mix.
+
+> 2. The nexflex barcode kit comes with primers and with the barcode/adapters.  If the answer to #1, above, is “no”, then we don’t need these primers, correct?  And anyway, it seems like the KAPA kit and the Nexflex kit both have primers to amplify the libraries; I’m assuming we’re supposed to use the Nextflex ones to amp, if amplification is necessary?
+
+A: Both the nextflex and the KAPA primers are the same; they amplify the universal Illumina adapter sequence.  Jesse’s been using the KAPA ones, but in principle it shouldn’t matter which we use.
+
+> 3. What was your ligation time for ligating the adapter/barcodes onto the amplicon fragments?
+
+A: they’ve been using the default, but we could increase this slightly and see if it helps.
+
+> 4. After bead cleanup, the KAPA protocol recommends eluting in elution buffer (Tris-HCL).  Did you make your own buffer?
+
+A: yes, you can either make buffer, or the Qiagen elution buffer EB (from the DNeasy kit) works just fine; that’s what they’ve been using.
+
+> 5. You mentioned you did a qPCR library quantification; we don’t have those reagents, etc., but do you think it will be OK to Bioanalyze and see what we’ve got?
+
+A: bioanalyzer will work fine; qPCR is just more accurate.
+
+
+ALSO: Jesse’s been using 150-250ng of input DNA per library.  Although the KAPA kit suggests you can use up to 1ug of DNA, anything over 250ng has given Jesse strange results (“a lot of noise”).

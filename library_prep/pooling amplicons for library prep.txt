@@ -1,0 +1,5 @@
+Jesse wants 400 ng DNA total per library prep "in case a library fails for any reason and needs to be redone."
+
+therefore, for 25 samples (tags), there should be 16 ng of each sample
+
+Make sure to quantify the entire POOL before sending to Jesse! It'd be best for him to get a known conc AND volume...

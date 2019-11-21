@@ -1,0 +1,26 @@
+Protocol for ligation of two DNA strands
+========================================
+
+Adapted from Gary Longo's original protocol by Jimmy O'Donnell
+
+Notes:
+	- Protocol as written starts with approx. 5000 - 9000 ng of DNA in solution.
+	- rATP needed to power the DNA ligase
+	- initial fragments should have blunt ends, so if using amplicons, they must first be blunt-ended
+	- written for adding P2 adapters (proprietary <?> Illumina sequencing adapters), but could work for other sequences to be annealed/ligated in double stranded form
+
+1. Add A-overhangs to the fragments by adding *in order* the following reagents to the sample. Total volume: 50 ul
+	1. NEBuffer 2 (10x) (B7002S)					5.0 ul
+	2. dATP (10mM)						1.0 ul
+	3. Klenow Fragment (3’ -> 5’ exo-) (NEB M0212L)*thaw on ice*		2.0 ul
+
+2. Incubate at 37°C for 60 mins
+
+3. Ligate the P2 adapter to the fragments by adding the following reagents to the sample *in order*. Total volume is 50 ul
+	1. NEBuffer 2 (10x) (B7002S)					5.0 ul
+	2. P2 RAD adapter (10 uM) [annealed]			1.0 ul
+	3. rATP (100 mM, Fermentas R0441)				0.5 ul
+	4. T4 DNA Ligase (NEB M0202M)* thaw on ice*				0.5 ul
+
+
+4. Incubate at 20ºC for 30 min

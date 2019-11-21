@@ -1,0 +1,11 @@
+To make 100uL of 10mM dNTPs, combine:
+
+
+10uL @ 100uM dATP
+10uL @ 100uM dGTP
+10uL @ 100uM dCTP
+10uL @ 100uM dTTP
+
+60uL water
+
+

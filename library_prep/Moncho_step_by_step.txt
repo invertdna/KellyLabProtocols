@@ -1,0 +1,183 @@
+Notes on Library preparation for a MiSeq run
+
+Step 1: PCR1 is a PCR reaction with universal primers: same primer pair for all samples.
+  Currently PCR1 is performed on 20 ul Rx, while only 1 ul is transferred to PCR2,
+  so there is potential to reduce the Volume to 15 or 10 ul.
+  PCR mix includes extra MgCl2 for COI and  16S loci.
+COI cycling includes a touchdown approach from 62-46 and 25 more cycles at 
+
+
+Mix per well:
+
+PCR water						13.65	
+10x buffer						2	
+25mM MgCl2						0.8	
+dNTPs (8mM)						1.25	
+primer 1  (10 µM)					0.6	
+primer 2  (10 µM)					0.6	
+HotStar Taq						0.1	
+Template						1
+
+
+Cycling:
+95C - 15min
+95C - 15 sec	|
+62-46 - 30sec	|
+72 - 1 min	|x16
+95C - 15 sec	|
+46 - 30sec	|
+72 - 1 min	|x24
+72- 10min
+
+
+
+Step 2: Check PCR success in a gel: 5 ul PCR with 1 ul of Loading dye + Sybr Green
+Step 3: AMPure XP with successful amplicons:
+        IF PCR VOLUME IS 10 UL, USE 8.3 uL of PCR product and 15 uL of AMPURE XP
+        and elute in 20 uL of PCR water.
+        IF PCR VOLUME IS 20 UL, USE 11.0 uL of PCR product and 20 uL of AMPURE XP
+        and elute in 25 ul of PCR water.
+Step 4: PCR2 with sample-specific primers. Using our R script or any other randomizing tool,
+ randomly assign PCR2 tags and Library adapters to each PCR replicate. PCR2 is on a 25 uL volume, adding between 2 - 5 uL of
+ PCR1 product as template. Mix is dispensed without primers, and then add 1 uL of the sample specific primer pair on each well.
+
+Mix per well:
+
+PCR water						15.375	
+10x buffer						2.5	
+25mM MgCl2						1	
+dNTPs (8mM)						1	
+primer 1 and 2 (10 µM)					1	
+HotStar Taq						0.125	
+Template						4
+
+Cycling:
+95C - 15min
+95C - 15 sec	|
+62-46 - 30sec	|
+72 - 1 min	|x16
+95C - 15 sec	|
+46 - 30sec	|
+72 - 1 min	|x6
+72- 10min
+
+
+Step 5: AMPure XP all samples. Use  15 ul of PCR product and 20 ul of AMPure XP per sample, to reduce
+  the carryover of unassigned tags. Elute in 20 ul of PCR water.
+Step 5.5: Qubit purified products.
+
+Step 6: If using PCR2 to assign tags to samples, run the script that uses vol_for_sequencing to calculate
+  how much of each sample you want to pool. I recommend targeting 150-250 ng of DNA into each well in the next
+  step. I diluted the PCR2 products 10:100 to be more accurate while pooling.
+Step 7: Do the End Repair and A-tailing Rx.  So for each library I used:
+      250 ng DNA in 50 ul
+      3 ul Enzyme (x 12.1 = 36.3)
+      7 ul Buffer (x 12.1 = 84.7)
+      
+
+
+      Run KapaEND on Thermocycler
+
+Step 8: Do the Adapter ligation RX: For 250 ng of DNA, the KAPA Hyper Prep Kit recommends a Adapter conc
+  of 750 nM, which is close to adding 5 ul of the 15 uM Stock into a 110 ul Rx. Make sure you add the right
+  adapter to each well ;). The Rx per well is
+    60 ul from Step 7 (the rx is done on the same tube)
+    45 ul of a mix of Ligase (10ul), Buffer (30ul) and Water (5ul)
+     5 ul of each Barcode-Library (IDT, 15uM ).
+
+     Run KapaADAP on Thermocycler
+
+Step 9: Post ligation AMPure Cleanup: Each library is still cleaned up independently:
+    Add to the same tube 88 ul of AMPure XP
+    Do the wash ups with 200 ul of 80% EtOH
+    Elute in 25 ul of PCR water
+
+Step 9b: take 1 uL of each library and run them in a Bioanalyzer - if yields are way too low,
+   then increase the number of cycles of step 10
+
+Step 10: Use 20 uL of the elution as template for a PCR with the adapters as primers
+    20uL eluted libraries
+    25uL 2x Kapa HiFi Hotstar Readymix
+     5uL 10x KAPA library Amplification Primer mix
+Step 11: Modify KapaAMP adjusting the number of cycles between 2-6, based on 9b.
+
+Step 12: CLean up the amplified libraries. Here I have changed things a bit, based on
+past failed attempts. There is a chance that Library ligation and PCR form a lot of adapter dimer.
+6 PCR cycles should provide lots of Illumina-ready libraries, so there is plenty of template to spare.
+My approach now is to do the Cleanup on half of the volume of each library :
+    25uL libraries
+    25uL PCR water
+    50uL AMPure beads
+
+    Use 200 ul of 80% Ethanol for the washes, elute in 25 uL of PCR Water
+
+Step 13: Use 1 uL of each cleaned library in a Bioanalyzer chip: If there is a small bump in the
+200bp region that is adapter dimer, which will mess up your concentration estimations for loading the libraries.
+If that is the case, repeat the cleanup with the other 25 uL of libraries, this time using less beads(40uL) and same
+volume of water - that will get rid of the smaller fragment while keeping enough of each library. Repeat the Bioanalyzer
+chip to be sure.
+
+Run 2 uL of each library for a Qubit quantification, and then pool libraries
+to ensure equal representation of each library.
+
+Qubit returns ng/uL
+
+Fragment size for COI libraries is:
+Amplicon:                                            313 bp
+Primers+ barcodes + 3Ns : (27 + 27 + 6 + 6 + 3 + 3)=  72 bp
+Adapters: 122:                                       122 bp
+TOTAL:                                               507 bp
+
+So the molecular weight of the fragment is 660*507= 334,620 gr/mol
+
+Now the conversion between ng/uL to nM is
+
+Conc_in_ng_uL
+-------------  x 10 = Conc_in_nM
+   3.346
+
+
+Target is 4nM, so the target concentration is ~  1.34 ng/uL - work out dilution
+of each sample
+
+It is best practice to do this final dilution in a two step process:
+
+Calculate how much water to add to 2.5 uL of library to make it 10nM,
+
+(n+2.5)*10 = 2.5 * [Conc_in_nM]
+
+     [Conc_in_nM]
+n = ------------- - 2.5
+          4
+
+
+Then, mix well all libries and make the final 4nM dilution
+
+(n+5 )* 4 = 5 * [10]
+
+n = 50/4 - 5
+
+n = 7.5
+
+So mix 5 uL of each library at 10nM with 7.5 uL of PCR water.
+
+You can also qubit any of the mid steps for reassurance.
+
+Given that Qubit has higher precision on the mid values of its reading,
+
+if you are qubiting the 10nM step, that's 3.3 ng/uL.
+
+volume in Qubit   Expected reading in qubit
+
+1 ---------------  16
+2 ---------------  33
+3 ---------------  49
+4 ---------------  66
+5 ---------------  80
+10 -------------- 160
+
+
+So I'll go with 4 uL of sample in the Qubit.
+
+
+

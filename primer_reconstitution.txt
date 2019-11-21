@@ -1,0 +1,22 @@
+PRIMER RECONSTITUTION:
+
+To reconstitute dry primers:
+
+***Spin down primer tube first!!!***
+
+100 µM = X nmoles lyophilized primer + (X × 10 µl molecular grade H2O) 
+
+****IN THE KELLY LAB WE USUALLY KEEP STOCK PRIMERS AT 200uM.
+To do this, make the above calculation, but cut the amount of water in half.
+
+For example, if there are 38.2 nmol of primer then by adding 382 µl of H2O, a 100 µM primer stock is created.
+
+
+
+
+PRIMER DILUTION:
+
+To dilute 100µM primer stock to 10µM, add 10µL stock to 90µL water.
+
+To dilute 200µM primer stock to 10µM, add 5µL stock to 95µL water.
+

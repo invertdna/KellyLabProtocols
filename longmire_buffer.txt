@@ -1,0 +1,8 @@
+To make 1 liter of "Lysis Buffer" (add in numerical order):
+1. 50 ml of 2 M Tris-HCL, pH 8.0
+2. 200 ml of 0.5M EDTA, pH8.0. ** pH is critical! -- add NaOH to EDTA until pH reaches 8.0
+3. 2 ml of 5M NaCl
+4. up to 975 ml double-distilled water
+5. 25 ml of 20% SDS (w/v)
+
+Source: Longmire JL, Maltbie M, Baker RJ. Use of lysis buffer in DNA isolation and its implication for museum collections. Museum Texas Tech Univ. 1997;163. 

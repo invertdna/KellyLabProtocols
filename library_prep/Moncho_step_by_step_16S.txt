@@ -1,0 +1,92 @@
+Notes on Library preparation for a MiSeq run
+
+Step 1: PCR1 is a PCR reaction with unversal primers: same primer pair for all samples.
+  Currently PCR1 is performed on 20 ul Rx, while only 1 ul is transferred to PCR2,
+  so there is potential to reduce the Volume to 15 or 10 ul.
+  PCR mix includes extra MgCl2 for COI and  16S loci
+Step 2: Check PCR success in a gel: 5 ul PCR with 1 ul of Loading dye + Sybr Green
+Step 3: AMPure XP with successful amplicons:
+        IF PCR VOLUME IS 10 UL, USE 8.3 uL of PCR product and 15 uL of AMPURE XP
+        and elute in 20 uL of PCR water.
+        IF PCR VOLUME IS 20 UL, USE 11.0 uL of PCR product and 20 uL of AMPURE XP
+        and elute in 25 ul of PCR water.
+Step 3.5: Qubit purified products to so yo add a similar amount of DNA to PCR2
+Step 4: PCR2 with sample-specific primers. This step is under scrutiny now, as they seem
+  to be mixed or mislabelled or both. If we still do it, we have to run all samples through
+  the script random_tag.r (or similar) which randonmly assigns tags and libraries to samples.
+  Note: modify the script to ensure the number of samples per library is as constant as possible.
+  Currently PCR2 is done on a 20 ul volume.
+Step 5: AMPure XP all samples. Use  15 ul of PCR product and 20 ul of AMPure XP per sample, to reduce
+  the carryover of unassigned tags. Elute in 20 ul of PCR water.
+Step 5.5: Qubit purified products.
+Step 6: If using PCR2 to assign tags to samples, run the script that uses vol_for_sequencing to calculate
+  how much of each sample you want to pool. I recommend targeting 150-250 ng of DNA into each well in the next
+  step. I diluted the PCR2 products 10:100 to be more accurate while pooling.
+Step 7: Do the End Repair and A-tailing Rx.  So for each library I used:
+      100 ng DNA
+      3 ul Enzyme
+      7 ul Buffer
+      PCR water to total Volume of 60 ul
+
+      Run KapaEND on Thermocycler
+
+Step 8: Do the Adapter ligation RX: For 100 ng of DNA, the KAPA Hyper Prep Kit recommends a Adapter:insert ratio
+  of 100:1 , which is close to adding 6.6 ul of the 15 uM Stock into a 110 ul Rx. Make sure you add the right
+  adapter to each well ;). The Rx per well is
+    60 ul from Step 7 (the rx is done on the same well)
+  43.4 ul of a mix of Ligase (10), Buffer (30) and Water (3.4)
+   6.6 ul of each Barcode-Library (Bioo Scientific).
+
+     Run KapaADAP on Thermocycler. We let it run at 20C overnight, which might be an overkill.
+     Protocol recommends up to 4 hr at 20 and then 4C
+
+Step 9: Post ligation AMPure Cleanup: Each library is still cleaned up independently:
+    Add to the same tube 88 ul of AMPure XP
+    Do the wash ups with 200 ul of 80% EtOH
+    Elute in 25 ul of PCR water
+
+Step 9b: take 1 uL of each library and run them in a Bioanalyzer - if yields are way too low,
+   then increase the number of cycles of step 10
+
+Step 10: Use 20 uL of the elution as template for a PCR with the adapters as primers
+    20uL eluted libraries
+    25uL 2x Kapa HiFi Hotstar Readymix
+     5uL 10x KAPA library Amplification Primer mix
+Step 11: Modify KapaAMP adjusting the number of cycles between 2-6, based on 9b
+
+Step 12: CLean up the amplified libraries
+    50uL libraries
+    50uL AMPure beads
+
+    Use 200 ul of 80% Ethanol for the washes, elute in 25 uL of PCR Water
+
+Step 13: Use 2 uL of each library for a Qubit quantification, and then pool libraries
+to ensure equal representation of each library.
+
+Qubit returns ng/uL
+
+Fragment size for COI libraries is:
+Amplicon+ PCR primers:                               161 bp
+PCR Tags + 3Ns : ( 6 + 6 + 3 + 3)=                    18 bp
+Adapters: 121:                                       121 bp
+TOTAL:                                               300 bp
+
+So the molecular weight of the fragment is 660*300= 198,000 gr/mol
+
+Now the conversion between ng/uL to nM is
+
+Conc_in_ng_uL
+-------------  x 10 = Conc_in_nM
+   1.98
+
+Target is 4nM, so the target concentration is ~ 1.6 ng/uL - work out dilution
+of each sample
+
+
+
+
+
+
+
+
+Run each library with the Bioanalyzer: SHIT

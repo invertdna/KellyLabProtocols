@@ -1,0 +1,28 @@
+[Header]
+IEMFileVersion,5
+Date,01/31/2018
+Workflow,GenerateFASTQ
+Application,FASTQ Only
+Instrument Type,MiSeq
+Assay,Bioo NEXTflex 6nt Barcodes
+Index Adapters,"Bioo NEXTflex 6nt Barcodes"
+Description,
+Chemistry,Default
+
+[Reads]
+251
+251
+
+[Settings]
+ReverseComplement,0
+Adapter,AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+AdapterRead2,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+
+[Data]
+Sample_ID,Sample_Name,Sample_Plate,Sample_Well,I7_Index_ID,index,Sample_Project,Description
+01,Lib_A,OA_Jul_Aug_COI,A01,B001,CGATGT,OA_eDNA,
+02,Lib_B,OA_Jul_Aug_COI,A02,B002,TGACCA,OA_eDNA,
+03,Lib_C,OA_Jul_Aug_COI,A03,B003,ACAGTG,OA_eDNA,
+04,Lib_D,OA_Jul_Aug_COI,A04,B004,GCCAAT,OA_eDNA,
+05,Lib_E,OA_Jul_Aug_COI,A05,B005,CAGATC,OA_eDNA,
+06,Lib_F,OA_Jul_Aug_COI,A06,B006,CTTGTA,OA_eDNA,

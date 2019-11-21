@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1516654068993.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "746992289",
+    "id" : "F06A2B89",
+    "lastKnownWriteTime" : 1516746395,
+    "last_content_update" : 1516746395699,
+    "path" : "~/Google_Drive/Kelly_Lab/Lab/Protocols/DNA_extraction/results_Comparing_extractions.r",
+    "project_path" : "results_Comparing_extractions.r",
+    "properties" : {
+        "cursorPosition" : "17,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

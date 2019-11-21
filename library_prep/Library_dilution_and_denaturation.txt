@@ -1,0 +1,40 @@
+Step by step - denaturing your library and loading it into the MiSeq
+
+1.- Prepare a fresh dilution of NaOH
+       2 uL of 2.0 N NaOH
+       18 uL PCR water
+
+2.- Denature your LIBRARY
+        5 uL of 4nM LIBRARY
+        5 uL 0.2N NaOH
+
+        Mix and incubate at room temperature for 5 min
+
+        Add 990 uL of HT1 buffer: you have 1ml of 20pM library
+
+3.- Choose your final concentration: 12pM is a good starting point for a V3 kit. I'll do 8 pM this time
+as I am using a v2 Kit.
+Mix:
+240uL pf 20pM LIBRARY
+360uL of HT1
+
+4.- In this case, I'll skip denaturing and dilution of PHIX - It was already made. If you have to do it from scratch:
+
+Mix:
+2 uL PhiX Stock
+3 uL Tween20 buffer
+5 uL 0.2N NaOH
+
+      Mix well, let it incubate at room temperature for 5 minutes
+
+      Add 990 uL of HT1 buffer: you have 1ml of 20pM PHIX. If you are using v3. stop here. if using a V2 kit, dilute to 12pM
+
+Mix:
+
+375 uL PhiX 20pM
+225 uL HT1
+
+
+5.- Spike in 5% of PHIX.
+    Mix: 30 uL 20pm PHIX
+        570 uL 8pm Library
