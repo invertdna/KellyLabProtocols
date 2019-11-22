@@ -1,0 +1,27 @@
+Reaction components (μL)	MIX 1	
+Number of rxns:	1	23	
+
+PCR water	13.65	313.95	
+10x buffer	2	46	
+25mM MgCl2	0.8	18.4	
+dNTPs (8mM)	1.25	28.75	
+primer 1 (10 µM)	0.6	13.8	
+primer 2 (10 µM)	0.6	13.8	
+HotStar Taq	0.1	2.3	
+DNA template	1	
+Total Volume	20	
+
+forward primer:	COI_Leray_F	
+reverse primer:	COI_Leray_R	
+
+
+CYCLER
+	temp	time	
+initialization	95	15 min	
+number of cycles:	16 then 25	
+denature	95	15	
+annealing	62-46	30	
+extension	72	1 min	
+final ext.	72	10min	
+program name:	
+HSLeray	
