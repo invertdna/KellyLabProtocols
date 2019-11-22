@@ -1,6 +1,8 @@
  Modified from Renshaw et al. (2014) DNA Extraction Protocol
 
-Approximate time for 12 samples: 2.5 hrs day 1, 1 hr on day 2.
+**** General comments ****
+
+Approximate time for 12 samples: 0.5 hrs + 2 hr incubation + 2.5 hrs day 1, 1 hr on day 2.
 
 * Remember to include a DNA extraction control ("blank") -- using only 900uL Longmire solution.
 
@@ -10,10 +12,30 @@ Approximate time for 12 samples: 2.5 hrs day 1, 1 hr on day 2.
 
 * Get out all your reagents and supplies first (pipette tips, etc)
 
+**************************
+
+
+
+
+
+
+***** Day -1 *****
+
+If you are extracting DNA from a filter submerged in Longmire buffer, it pays off to put your samples the day before in a -80 freezer - that will make the filter brittle and will be pulverized by the bead beating step
+
+*******************
+
+
+
+
+
+
+
 Start with:
 47mm cellulose nitrate filter in 900uL of Longmire buffer in a 2mL centrifuge tube
 
 INGREDIENTS (per sample)
+- ~500uL of Sigma Acid washed glass beads for bead beating (size XXX CHECK in the lab)
 - 1.5mL tubes (1)
 - 2mL tubes (2)
 - 1000uL filter tips (4)
@@ -28,42 +50,56 @@ INGREDIENTS (per sample)
 † CONSIDER STANDARDIZING THE FOLLOWING STEPS There is potential to get different total volumes of DNA out of the extractions, so prioritizing consistency over maximizing yield may be optimal for some applications.
 
 
-1. Incubate samples at 65ºC for 30 minutes. (We use a water bath)
+****** DAY 1 ******
 
-2. While the samples are in the incubator: Get out two sets of 2mL tubes and add 700uL chloroform to each. Label them (sequential numbers are fine, these aren't the final tubes), and set aside. Add 20uL of 5M NaCl and 500uL of isopropanol to a fresh set of 1.5mL tubes. Label (these are the final tubes) and put in the freezer.
+1. Add ~ 500uL of ceramic beads to each tube. we use a 0.5 ml eppendorf tube to measure the amount of beads and add it to each tube.
 
-3. Take the samples out of the water bath (turn off the water bath!). Spin them briefly to ensure the filter is squished down to the bottom of the tube with no air bubbles. The tubes end up being really full, so this is important.
+2. Using a bead beater, shake the tubes for 60s at at least 30Hz. Alternatively, use an adaptor to hold tubes attached to a vortex, and keep at max speed for 2 minutes. Even if the filter does not get pulverized, you will have dislodged most of the cells from it.
 
-4. Add 900uL of phenol:chloroform:isoamyl alcohol to each tube. If 900uL won't fit, add as much as you can, leaving room for the cap to close.
+3. Add 20 uL of a Proteinase-K solution (10mg/ml) 
 
-5. † Shake the tubes vigorously for ~60 seconds.
+4. Incubate at 56ºC for 2 hrs
 
-6. Centrifuge at 14,000rpm for 5min.
+5. While the samples are in the incubator: Get out two sets of 2mL tubes and add 700uL chloroform to each. Label them (sequential numbers are fine, these aren't the final tubes), and set aside. Add 20uL of 5M NaCl and 500uL of isopropanol to a fresh set of 1.5mL tubes. Label (these are the final tubes) and put in the freezer.
 
-7. † Remove as much as possible (~700uL-850uL) of the aqueous (top) layer, transfer to first set of tubes containing 700uL chloroform.
+6. Take the samples out of the water bath (turn off the water bath!). Spin them briefly to ensure the filter is squished down to the bottom of the tube with no air bubbles. The tubes end up being really full, so this is important.
+
+7. Add 900uL of phenol:chloroform:isoamyl alcohol to each tube. If 900uL won't fit, add as much as you can, leaving room for the cap to close.
 
 8. † Shake the tubes vigorously for ~60 seconds.
 
-9. Centrifuge at 14,000rpm for 5 minutes
+9. Centrifuge at 14,000rpm for 5min.
 
-10. † Remove as much as possible (~700uL-850uL) of the aqueous (top) layer, transfer to the second set of tubes containing 700uL chloroform.
+10. † Remove as much as possible (~700uL-850uL) of the aqueous (top) layer, transfer to first set of tubes containing 700uL chloroform.
 
 11. † Shake the tubes vigorously for ~60 seconds.
 
 12. Centrifuge at 14,000rpm for 5 minutes
 
-13. Remove the tubes from the centrifuge, and transfer 500uL of the aqueous (top) layer to the tubes containing the isopropanol/NaCl mixture.
+13. † Remove as much as possible (~700uL-850uL) of the aqueous (top) layer, transfer to the second set of tubes containing 700uL chloroform.
 
-14. Allow to precipitate at -20ºC overnight
+14. † Shake the tubes vigorously for ~60 seconds.
+
+15. Centrifuge at 14,000rpm for 5 minutes
+
+16. Remove the tubes from the centrifuge, and transfer 500uL of the aqueous (top) layer to the tubes containing the isopropanol/NaCl mixture.
+
+17. Allow to precipitate at -20ºC overnight.
+
+********************
+********************
+
+
+****** DAY 2 *******
 
 THE FOLLOWING DAY
 
-15. Centrifuge tubes at 14,000rpm for 10min
+1. Centrifuge tubes at 14,000rpm for 10min
 
-16. While those centrifuge, set out some clean Kimwipes and a small vessel to contain the salt/isopropanol solution.
+2. While those centrifuge, set out some clean Kimwipes and a small vessel to contain the salt/isopropanol solution.
 
-17. Pour off liquid slowly, and set the tube upside-down on the clean Kimwipe. Dab off and remove any drops with a pipette tip.
+3. Pour off liquid slowly, and set the tube upside-down on the clean Kimwipe. Dab off and remove any drops with a pipette tip.
 
-18. Dry in a vacuum centrifuge at 45ºC for 15 minutes, followed by air-drying until no visible liquid remains.
+4. Dry in a vacuum centrifuge at 45ºC for 15 minutes, followed by air-drying until no visible liquid remains.
 
-19. Add 200uL PCR-grade water (or 1x TE Buffer, Low EDTA). Vortex to dissolve DNA; spin very briefly to get liquid down from cap.
+5. Add 200uL PCR-grade water (or 1x TE Buffer, Low EDTA). Vortex to dissolve DNA; spin very briefly to get liquid down from cap.
